@@ -10,6 +10,8 @@ func poppinBottles (#enterInvestment: Int) {
 
     let pricePerBottle = 2
     var totalBottlesRecycled = 0
+    var totalBottlesFromRecycling = 0
+    var totalBottlesFromCapsRecycling = 0
     var round = 1
     
     let initialBottles = enterInvestment / pricePerBottle
@@ -31,6 +33,8 @@ func poppinBottles (#enterInvestment: Int) {
         capsSupply -= capsRecycled
         
         var newBottles = (bottlesRecycled / 2) + (capsRecycled / 4)
+        totalBottlesFromRecycling += bottlesRecycled / 2
+        totalBottlesFromCapsRecycling += capsRecycled / 4
         println("New Bottles: \(newBottles)")
         bottleSupply += newBottles
         capsSupply += newBottles
@@ -41,8 +45,16 @@ func poppinBottles (#enterInvestment: Int) {
     
     totalBottlesRecycled
     round = 1
+    println("SUMMARY")
+    println("INITIAL INVESTMENT: \(enterInvestment)")
+    println("Bottles bought: \(initialBottles)")
+    println("Bottles obtained from recycling bottles: \(totalBottlesFromRecycling)")
+    println("Bottles obtained from recycling caps: \(totalBottlesFromCapsRecycling)")
+    println("Bottles left over: \(bottleSupply)")
+    println("Caps left over: \(capsSupply)")
     println("")
     println("")
+
 }
 
 poppinBottles(enterInvestment: 10)
